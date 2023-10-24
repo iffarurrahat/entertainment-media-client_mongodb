@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "brand_image": "https://i.ibb.co/Yf5sP1Q/disney-brand-logo.png",
+        "brand_name": "Walt Disney"
+    },
+    {
+        "id": 2,
+        "brand_image": "https://i.ibb.co/z4bXRX7/netflix-brand-logo.png",
+        "brand_name": "Netflix "
+    },
+    {
+        "id": 3,
+        "brand_image": "https://i.ibb.co/bHCV5wF/amazon-brand-logo.png",
+        "brand_name": "Amazon"
+    },
+    {
+        "id": 4,
+        "brand_image": "https://i.ibb.co/6PF6MVM/warner-bros-brand-1.png",
+        "brand_name": "Warner Bros"
+    },
+    {
+        "id": 5,
+        "brand_image": "https://i.ibb.co/r56VBbw/sony-pictures-brand-logo-1.png",
+        "brand_name": "Sony Pictures"
+    },
+    {
+        "id": 6,
+        "brand_image": "https://i.ibb.co/GP8zBZc/spotify-brand-logo.png",
+        "brand_name": "Spotify"
+    }
+]
