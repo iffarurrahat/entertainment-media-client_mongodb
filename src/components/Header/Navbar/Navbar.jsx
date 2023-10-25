@@ -1,18 +1,63 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { RiMenu2Line, RiCloseLine } from 'react-icons/ri';
 import Logo from "../Logo/Logo";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Navbar = () => {
 
+    const { user, logOut } = useContext(AuthContext);
+    const handleSignOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result.user);
+                alert('logout successfully')
+            })
+            .catch(error => console.log(error))
+    }
+
     const [open, setOpen] = useState(false);
 
-    const routes = [
-        { id: 1, path: '/', name: 'Home' },
-        { id: 2, path: '/product', name: 'Add Product' },
-        { id: 3, path: '/cart', name: 'My Cart' },
-        { id: 4, path: '/login', name: 'Login' },
-    ];
+    const navLink = <>
+        <li><NavLink
+            to="/"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "underline" : ""
+            }
+        >
+            Home
+        </NavLink></li>
+        <li><NavLink
+            to="/product"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "underline" : ""
+            }
+        >
+            Add Product
+        </NavLink></li>
+        <li><NavLink
+            to="/cart"
+            className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "underline" : ""
+            }
+        >
+            My Cart
+        </NavLink></li>
+
+        {
+            user ?
+                <button><Link onClick={handleSignOut} to="/login">Logout</Link></button> :
+                <li><NavLink
+                    to="/login"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "underline" : ""
+                    }
+                >
+                    Login
+                </NavLink></li>
+        }
+
+    </>
 
     return (
         <nav className=" flex items-center justify-between py-2 max-w-screen-xl mx-auto px-3 md:px-6 lg:px-1">
@@ -27,11 +72,7 @@ const Navbar = () => {
                 </div>
                 <ul className={`z-50 md:flex  absolute gap-6 md:static bg-slate-200 md:bg-transparent mr-4 md:mr-0 right-0 px-6 md:px-0 py-4 rounded-lg ${open ? 'top-16' : '-top-60'}`}>
                     <div className=" md:flex items-center gap-6">
-                        {
-                            routes.map(route => <li key={route.id}><NavLink to={route.path} className={({ isActive, isPending }) =>
-                                isPending ? "pending" : isActive ? "text-[#FF444A] underline" : ""
-                            }  >{route.name}</NavLink></li>)
-                        }
+                        {navLink}
                     </div>
                     <div>
                         <div className="drawer drawer-end">
@@ -39,7 +80,11 @@ const Navbar = () => {
                             <div className="drawer-content">
                                 {/* Page content here */}
                                 <label htmlFor="my-drawer-4" className="drawer-button">
-                                    <img className="h-10 w-10 rounded-full" src="https://i.ibb.co/8mKdBFC/user-blank-image.png" alt="" />
+                                    {
+                                        user ?
+                                            <img  className="h-10 w-10 rounded-full" src={user.photoURL} /> :
+                                            <img className="h-10 w-10 rounded-full" src="https://i.ibb.co/8mKdBFC/user-blank-image.png" alt="" />
+                                    }
                                 </label>
                             </div>
                             <div className="drawer-side z-50">
@@ -48,8 +93,12 @@ const Navbar = () => {
                                     {/* Sidebar content here */}
                                     <div className="flex justify-between items-start bg-[#1D2D3A] p-4">
                                         <div className="space-y-3 text-white">
-                                            <img className="h-12 w-12 rounded-full" src="https://i.ibb.co/8mKdBFC/user-blank-image.png" alt="" />
-                                            <p>User Name</p>
+                                            {
+                                                user ?
+                                                    <img className="h-10 w-10 rounded-full" src={user.photoURL} /> :
+                                                    <img className="h-12 w-12 rounded-full" src="https://i.ibb.co/8mKdBFC/user-blank-image.png" alt="" />
+                                            }
+                                            <p>{user?.displayName}</p>
                                             <p>Number</p>
                                         </div>
                                         {/* darkMode or lightMode */}

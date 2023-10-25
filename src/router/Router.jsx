@@ -9,6 +9,7 @@ import BrandNameSingleDetails from "../components/BrandNameSingleDetails/BrandNa
 import AddProductUpdate from "../pages/AddProductUpdate/AddProductUpdate";
 import MyCart from "../pages/MyCart/MyCart";
 import Register from "../pages/Register/Register";
+import PrivateRoute from "./PrivateRoute";
 
 const myCreatedRoute = createBrowserRouter([
     {
@@ -28,12 +29,12 @@ const myCreatedRoute = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <BrandNameSingleDetails></BrandNameSingleDetails>,
+                element: <PrivateRoute><BrandNameSingleDetails></BrandNameSingleDetails>,</PrivateRoute>,
                 loader: () => fetch('http://localhost:5000/addProducts')
             },
             {
                 path: '/product',
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             },
             {
                 path: '/updatedProduct/:id',

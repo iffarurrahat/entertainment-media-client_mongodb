@@ -10,7 +10,7 @@ const BrandNameSingleCard = ({ product }) => {
     return (
         <div>
             <div className="relative md:flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div className="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
+                <div className="relative w-full md:w-2/5 h-96 md:h-full overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 md:rounded-xl bg-clip-border">
                     <img className='h-full w-96' src={photo} />
                 </div>
                 <div className="p-6">
