@@ -25,12 +25,12 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: '/brand/:id',
                 element: <BrandNameSingle></BrandNameSingle>,
-                loader: () => fetch('http://localhost:5000/addProducts')
+                loader: () => fetch('https://entertainment-media-server.vercel.app/addProducts')
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><BrandNameSingleDetails></BrandNameSingleDetails>,</PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/addProducts')
+                loader: () => fetch('https://entertainment-media-server.vercel.app/addProducts')
             },
             {
                 path: '/product',
@@ -39,12 +39,12 @@ const myCreatedRoute = createBrowserRouter([
             {
                 path: '/updatedProduct/:id',
                 element: <AddProductUpdate></AddProductUpdate>,
-                loader: ({ params }) => fetch(`http://localhost:5000/addProducts/${params.id}`)
+                loader: ({ params }) => fetch(`https://entertainment-media-server.vercel.app/addProducts/${params.id}`)
             },
             {
                 path: '/cart',
                 element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/myCart')
+                loader: () => fetch('https://entertainment-media-server.vercel.app/myCart')
             },
             {
                 path: 'login',

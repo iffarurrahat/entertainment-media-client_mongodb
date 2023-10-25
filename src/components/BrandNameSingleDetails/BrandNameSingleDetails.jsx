@@ -24,7 +24,7 @@ const BrandNameSingleDetails = () => {
     // handle addToCart 
     const handleAddToCart = () => {
         // console.log(e.target);
-        fetch('http://localhost:5000/myCart', {
+        fetch('https://entertainment-media-server.vercel.app/myCart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
