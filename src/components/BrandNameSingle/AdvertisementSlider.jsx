@@ -18,7 +18,7 @@ const AdvertisementSlider = () => {
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
-                    <img src="https://i.ibb.co/6ydNzr6/addver-2.jpg" className="w-full h-80" />
+                    <img src="https://i.ibb.co/HFyZs2W/addver-3.jpg" className="w-full h-80" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 top-1/2 left-5 right-5">
                         <a href="#slide2" className="btn btn-circle">❮</a>
                         <a href="#slide4" className="btn btn-circle">❯</a>
