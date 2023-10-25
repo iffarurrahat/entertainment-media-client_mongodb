@@ -3,7 +3,9 @@ import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useContext, useState } from "react";
-import { updateProfile } from 'firebase/auth';
+import { getAuth, updateProfile } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
+const auth = getAuth(app);
 
 
 
@@ -49,10 +51,9 @@ const Register = () => {
                     'success'
                 )
                 // update Profile
-                updateProfile(result.user, {
-                    // displayName: name,
-                    displayName: result.user.displayName,
-                    photoURL: result.user.photoURL,
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photo,
                 })
                     .then(() => console.log('Profile updated'))
                     .catch()

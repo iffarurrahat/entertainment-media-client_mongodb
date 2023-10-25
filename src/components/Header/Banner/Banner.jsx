@@ -1,24 +1,34 @@
-import PropTypes from 'prop-types';
-import './Banner.css'
+import Slider from "./Slider";
 
-const Banner = ({ handleSearchBtn }) => {
 
+const slideData = [
+    {
+        "id": 1,
+        "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/8I37NtDffNV7AZlDa7uDvvqhovU.jpg",
+        "title": "Avatar: The Way of Water",
+        "subTitle": "Set more than a decade after the events of the first film, learn the story of the Sully family the trouble that follows them.",
+    },
+    {
+        "id": 2,
+        "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/bQXAqRx2Fgc46uCVWgoPz5L5Dtr.jpg",
+        "title": "Black Adam",
+        "subTitle": "Nearly 5,000 years after he was bestowed with the almighty powers of the Egyptian gods—and imprisoned just as quickly—Black Adam is freed from his earthly tomb."
+    },
+    {
+        "id": 3,
+        "image": "https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/yYrvN5WFeGYjJnRzhY0QXuo4Isw.jpg",
+        "title": "Black Panther: Wakanda Forever",
+        "subTitle": "Queen Ramonda, Shuri, M’Baku, Okoye and the Dora Milaje fight to protect their nation from intervening world powers in the wake of King T’Challa’s death."
+    }
+]
+
+
+const Banner = () => {
     return (
-        <div className="banner-bg h-80 md:h-96 lg:h-[calc(100vh-88px)] flex justify-center items-center">
-            <div>
-                <h1 className="text-4xl lg:text-5xl font-bold text-center">I Grow By Helping People In Need</h1>
-                <div className='mt-5 md:mt-10 px-3 md:mz-0 text-center'>
-                    <input id="search-filed" className='border border-r-0 p-2 md:p-3 rounded-l-lg md:w-2/4' type="text" placeholder='Search here...' />
-                    <button onClick={handleSearchBtn} className='border border-[#FF444A] bg-[#FF444A] text-white  px-4 md:px-7 py-2 md:py-3 rounded-r-lg'>Search</button>
-                </div>
-            </div>
+        <div className="w-full">
+            <Slider slideData={slideData}></Slider>
         </div>
     );
-};
-
-
-Banner.propTypes = {
-    handleSearchBtn: PropTypes.func,
 };
 
 export default Banner;
