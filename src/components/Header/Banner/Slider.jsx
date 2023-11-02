@@ -12,7 +12,7 @@ import './Slider.css';
 
 const Slider = ({ slideData }) => {
     return (
-        <div className='bg_image_overlay'>
+        <div className=''>
             <Swiper
                 modules={[Navigation, Pagination, A11y]}
                 spaceBetween={50}
@@ -25,7 +25,7 @@ const Slider = ({ slideData }) => {
                 {
                     slideData.map(slide => (
                         <SwiperSlide key={slide.id}>
-                            <img className='w-full h-96 md:h-full relative bg_overlay' src={slide.image} alt="" />
+                            <img className='w-full h-96 md:h-full relative brightness-30' src={slide.image} alt="" />
                             <div className='absolute left-16 md:left-20 top-[25%] w-[70%] md:w-[60%] text-white'>
                                 <h2 className='text-2xl md:text-3xl font-bold md:mb-2'>{slide.title}</h2>
                                 <p>{slide.subTitle}</p>

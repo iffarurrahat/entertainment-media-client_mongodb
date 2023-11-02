@@ -42,9 +42,9 @@ const myCreatedRoute = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://entertainment-media-server.vercel.app/addProducts/${params.id}`)
             },
             {
-                path: '/cart',
+                path: '/cart/:email',
                 element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
-                loader: () => fetch('https://entertainment-media-server.vercel.app/myCart')
+                loader: ({params}) => fetch(`https://entertainment-media-server.vercel.app/myCart/${params.email}`)
             },
             {
                 path: 'login',

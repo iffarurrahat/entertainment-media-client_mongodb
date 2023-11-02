@@ -36,7 +36,7 @@ const Navbar = () => {
             Add Product
         </NavLink></li>
         <li><NavLink
-            to="/cart"
+            to={`/cart/${user?.email}`}
             className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "underline" : ""
             }

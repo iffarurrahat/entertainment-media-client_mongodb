@@ -1,8 +1,9 @@
 import ReactPlayer from 'react-player/youtube'
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const BrandNameSingleDetails = () => {
 
@@ -21,6 +22,11 @@ const BrandNameSingleDetails = () => {
     }, [loadedProducts, params.id]);
 
 
+    // email for save cart data
+    const { user } = useContext(AuthContext);
+    // console.log(user.email);
+
+
     // handle addToCart 
     const handleAddToCart = () => {
         // console.log(e.target);
@@ -29,7 +35,7 @@ const BrandNameSingleDetails = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ name, brandName, photo, rantCost, genre, rating, types, releaseDate, trailer, description })
+            body: JSON.stringify({ name, brandName, photo, rantCost, genre, rating, types, releaseDate, trailer, description, email: user.email })
         })
             .then(res => res.json())
             .then(data => {
@@ -71,7 +77,7 @@ const BrandNameSingleDetails = () => {
                         </div>
                         <p>{description}</p>
                         {/* button add to cart */}
-                         <button
+                        <button
                             className="flex items-center gap-2 px-4 py-2 mt-4 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                             data-ripple-dark="true"

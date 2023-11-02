@@ -4,7 +4,11 @@ import MyCartDisplay from "./MyCartDisplay";
 
 const MyCart = () => {
 
-    const [myCart, setMyCart] = useState([]);
+    const cartData = useLoaderData();
+    // console.log(cartData);
+    
+
+    const [myCart, setMyCart] = useState(cartData);
 
     const loadedMyCart = useLoaderData();
 
