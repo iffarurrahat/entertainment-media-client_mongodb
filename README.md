@@ -1,9 +1,16 @@
-# React + Vite
+# Project Name: Entertainment Media
+# Project Live URL: [Entertainment Media](https://entertainment-media-26908.web.app/) 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- Using Tool / Package -->
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# b8a10-brandshop-client-side-iffarurrahat
+Using Tool / Package
+- React
+- React-Router-DOM
+- React-Icons
+- Tailwind CSS
+- Prop-Types
+- React-Player
+- SweetAlert2
+- Swiper (Slider)
+- Firebase
+- MongoDb
